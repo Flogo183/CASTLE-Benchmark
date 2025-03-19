@@ -16,6 +16,8 @@ Paper preprint is available at: [arxiv.org](https://arxiv.org/abs/2503.09433)
 - [CASTLE-C250.json](./datasets/CASTLE-C250.json) - The parsed and labeled dataset with 250 tests in C language.
 - [CASTLE-C250.min.json](./datasets/CASTLE-C250.min.json) - The minified version parsed and labeled dataset with 250 tests in C language. It contains everything from the non-minimized version but it's less readable: recommended for automated use.
 - [CASTLE-C250](./datasets/CASTLE-C250) - All 250 tests in C language in individual C files with an accompanied Makefile.
+- [CASTLE-Source](https://github.com/CASTLE-Benchmark/CASTLE-Source) - The source code repository for the CASTLE Dataset, Tests, Wrappers, Evaluators, Diagrams and more ...
+
 
 ## Architecture
 
