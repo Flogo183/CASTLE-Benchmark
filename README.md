@@ -6,6 +6,9 @@
 
 The __CASTLE Benchmark__ is a comprehensive dataset and a scoring method for evaluating single or combinations of __static analyzers__ with a focus on security. It consists of a hand-crafted dataset of __250__ micro-benchmark programs (almost 11,000 lines of C code), covering __25__ common __CWEs__. We also introduce the novel __CASTLE Score__ metric to enable fair and reliable comparisons, considering factors such as true positive and false positive rates, as well as the tools' ability to find more common issues. This dataset enables a comparison of single tools, as well as the effectiveness of tool combinations.
 
+This dataset was created by Richard A. Dubniczky, Krisztofer Zoltan Horvát, Tamás Bisztray,
+Mohamed Amine Ferrag, Lucas C. Cordeiro, and Norbert Tihanyi as a joint research project and it is currently under peer-review.
+
 ## The Complete Dataset
 
 - [CASTLE-C250.json](./datasets/CASTLE-C250.json) - The parsed and labeled dataset with 250 tests in C language.
