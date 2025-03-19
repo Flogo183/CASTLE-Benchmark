@@ -9,6 +9,8 @@ The __CASTLE Benchmark__ is a comprehensive dataset and a scoring method for eva
 This dataset was created by Richard A. Dubniczky, Krisztofer Zoltan Horvát, Tamás Bisztray,
 Mohamed Amine Ferrag, Lucas C. Cordeiro, and Norbert Tihanyi as a joint research project and it is currently under peer-review.
 
+Paper preprint is available at: [arxiv.org](https://arxiv.org/abs/2503.09433)
+
 ## The Complete Dataset
 
 - [CASTLE-C250.json](./datasets/CASTLE-C250.json) - The parsed and labeled dataset with 250 tests in C language.
@@ -41,6 +43,20 @@ True vs False Positive rates of the tools:
 
 ![True and False positive rate of the tools](./assets/castle-tp-fp-rate.png)
 
+## Citing the Paper
+
+```bibtex
+@misc{dubniczky2025castle,
+    title={CASTLE: Benchmarking Dataset for Static Code Analyzers and LLMs towards CWE Detection}, 
+    author={Richard A. Dubniczky and Krisztofer Zoltán Horvát and Tamás Bisztray and Mohamed Amine Ferrag and Lucas C. Cordeiro and Norbert Tihanyi},
+    year={2025},
+    eprint={2503.09433},
+    archivePrefix={arXiv},
+    primaryClass={cs.CR},
+    url={https://arxiv.org/abs/2503.09433}, 
+}
+```
+
 
 ## Additional Charts
 
@@ -59,3 +75,7 @@ Comparing the CASTLE Score of tool combinations vs the better individual tool sc
 True positive count for each tool per CWE
 
 ![](./assets/castle-tp-cwe.png)
+
+Venn diagram of specific vulnerabilitites detected by the best three-way CASTLE score. The smaller the intersections, the higher the improvement in CASTLE scores given a limited amount of false positives.
+
+![](./assets/castle-venn-cubic.png)
