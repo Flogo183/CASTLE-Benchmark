@@ -15,13 +15,47 @@ Mohamed Amine Ferrag, Lucas C. Cordeiro, and Norbert Tihanyi as a joint research
 - [CASTLE-C250.min.json](./datasets/CASTLE-C250.min.json) - The minified version parsed and labeled dataset with 250 tests in C language. It contains everything from the non-minimized version but it's less readable: recommended for automated use.
 - [CASTLE-C250](./datasets/CASTLE-C250) - All 250 tests in C language in individual C files with an accompanied Makefile.
 
-## Framework
+## Architecture
 
-![CASTLE Framework Diagram](./assets/castle-framework.png)
+![CASTLE Architecture Framework Diagram](./assets/castle-framework.png)
 
-The CASTLE Framework consists of 4 main stages:
+The CASTLE Architecture consists of 4 main stages:
 
 1. We selected the tested CWEs, created the dataset of tests and labelings and validated the correctness of the C code over many iterations using expert review, static analyzers, formal verification methods, and LLMs. The final result from this step is the dataset JSON file.
 2. In the second step we created wrappers for all tools to automate the evaluation as much as possible. For some open-source tools this means running the tests in a container in sequence, while for others we had to access APIs or manually download the results and parse them afterwards. The output of this step is an report JSON file in a custom common format.
 3. In the manual review phase we looked at all the ~7,500 findings and validated our TP and FP classifications. Some tools marked a different line or CWE than our tests indicate, and in those cases we set our classification accordingly and updated our tests. We ran these tests on the tools at least 3 times between Nov 2024 and Feb 2025 with the updated dataset.
 4. We evaluated the findings and calculated the CASTLE Score for single tools and tool combinations, as well as generated our final toplists and charts.
+
+## Results
+
+We tested a total of 25 tools (13 static analyzers, 2 formal verification tools, 10 LLMs) on the CASTLE C250 Dataset. The results from the top 250 tests and their CASTLE Scores ordered by their CASTLE Score:
+
+
+![The results of the CASTLE Benchmark](./assets/castle-results.png)
+
+Barchart comparing the CASTLE Scores of the individual tools and the best 5 tool combinations. The theiretical maximum score is 1250, while the negative is unlimited, as all false positives subtract points.
+
+![The CASTLE Score barcharts](./assets/castle-score-barchart.png)
+
+True vs False Positive rates of the tools:
+
+![True and False positive rate of the tools](./assets/castle-tp-fp-rate.png)
+
+
+## Additional Charts
+
+List of CWEs in the dataset
+
+![](./assets/castle-cwes.png)
+
+Strengths of LLMs vs Static Analyzers based on the standard metrics.
+
+![](./assets/castle-strengths-radar.png)
+
+Comparing the CASTLE Score of tool combinations vs the better individual tool scores
+
+![](./assets/castle-delta-matrix.png)
+
+True positive count for each tool per CWE
+
+![](./assets/castle-tp-cwe.png)
