@@ -1,0 +1,26 @@
+{
+  "name": "bachelorarbeit",
+  "image": "vsc-bachelorarbeit-dd853527c6e4ba6db7335dab6884fe95e06c6f5c470900220f73380be961be07",
+  // Mount your CASTLE datasets
+  "mounts": [
+    "source=/Users/flaviogottschalk/dev/BachelorArbeit/CASTLE_repo/CASTLE-Benchmark/datasets,target=/workspaces/CASTLE-datasets,type=bind"
+  ],
+  // Default workspace folder
+  "workspaceFolder": "/workspaces",
+  // Run commands after container creation (installs needed build deps)
+  "postCreateCommand": "apt-get update && apt-get install -y build-essential gcc g++ make cmake git wget curl python3 python3-pip libsqlite3-dev libssl-dev zlib1g-dev && apt-get clean",
+  // Recommended VS Code extensions inside container
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools", // C/C++ IntelliSense & debugging
+        "ms-vscode.cpptools-extension-pack",
+        "ms-vscode.cmake-tools", // CMake integration
+        "twxs.cmake", // CMake syntax highlighting
+        "ms-python.python", // Python support
+        "ms-azuretools.vscode-docker", // Docker integration
+        "ms-vscode.remote-containers" // Dev Containers
+      ]
+    }
+  }
+}
