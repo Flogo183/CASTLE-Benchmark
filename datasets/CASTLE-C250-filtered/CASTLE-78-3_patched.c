@@ -1,12 +1,19 @@
 #include <stdio.h>
+#include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
 
-#define CMD_MAX 256
-
 int main(int argc, char **argv)
 {
-    char cmd[CMD_MAX] = "/usr/bin/cat ";
+    char cat[] = "cat ";
+    char *command;
+    unsigned long long commandLength;
+
+    if (argc != 2)
+    {
+        printf("Usage: %s <file_path>\n", argv[0]);
+        return 1;
+    }
 
     /* PATCH:
        - Read inputs from environment variables instead of command line arguments [because Mole's sources need to be call sites]
@@ -20,7 +27,17 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    strncat(cmd, argv[1], CMD_MAX - 14);
-    system(cmd);
+    commandLength = strlen(cat) + strlen(argv[1]) + 1;
+    command = (char *)malloc(commandLength);
+    if (command == NULL)
+    {
+        return 1;
+    }
+
+    strncpy(command, cat, commandLength);
+    strncat(command, argv[1], (commandLength - strlen(cat)));
+
+    system(command);
+    free(command);
     return 0;
 }
